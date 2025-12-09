@@ -15,7 +15,8 @@ A small end-to-end pipeline that collects recent r/WallStreetBets posts, extract
 ├── wsb_daily_sentiment.csv      # Aggregated daily sentiment (generated)
 ├── stock_prices.csv             # Historical stock data (generated)
 ├── merged_data.csv              # Combined dataset (generated)
-└── model_results.csv            # Model performance metrics (generated)
+├── model_results.csv            # Model performance metrics (generated)
+└── Final_Report.pdf             # Final report
 ```
 
 ## What it does
