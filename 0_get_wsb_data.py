@@ -2,11 +2,22 @@ import praw
 import pandas as pd
 import re
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
-# Information get from: https://www.reddit.com/prefs/apps
-REDDIT_CLIENT_ID = "DfeJt179IwKBJh5IKIOpYQ"
-REDDIT_CLIENT_SECRET = "ANZEcmLDpVf1eSzDE0hogh6DD88vIw"
-REDDIT_USER_AGENT = "WSB_Sentiment_Analysis_v1.0"
+# Load environment variables from .env file
+load_dotenv()
+
+# Get credentials from environment variables
+REDDIT_CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
+REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
+REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT")
+
+# Validate that credentials are provided
+if not all([REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USER_AGENT]):
+    print("Error: Reddit API credentials not found in .env file")
+    print("Please create a .env file with REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, and REDDIT_USER_AGENT")
+    exit(1)
 
 # 1: Connect to Reddit
 print("Connecting to Reddit...")
